@@ -4,29 +4,38 @@ import os
 
 @click.command()
 @click.option(
-    "--template",
-    "-t",
-    type=click.Choice(["fastapi", "vuejs"]),
-    prompt="Template to generate",
-    help="The name of the template to generate: fastapi | vuejs",
+    "repository",
+    "-r",
+    prompt="""Welcome on stack-gen !\nRepository name containing the template to generate""",
+    help="Name of the repository containing the cookicutter template",
 )
-@click.option("--url", help="GIT url of the template")
-@click.option("--github_access_token", "-gac", help="GITHUB access token")
-def main(template, url, github_access_token):
-    os.system(f"git clone git@github.com:hourlier96/{template}-generator.git --quiet")
-    os.system(
-        f"python3 -m pip install -r {template}-generator/requirements.txt --quiet",
+@click.option(
+    "--user",
+    "-u",
+    prompt="Github user owning the repository",
+    help="Github user on which stack generator searches for template repository",
+)
+@click.option("--access_token", "-gac", help="GITHUB access token")
+def main(repository, user, access_token):
+    exit_status = os.system(f"git clone git@github.com:{user}/{repository}.git --quiet")
+    if exit_status != 0:
+        exit(1)
+
+    exit_status = os.system(
+        f"pip install -r {repository}/requirements.txt --quiet",
     )
+    if exit_status != 0:
+        os.system(f"rm -rf {repository}")
+        exit(1)
 
-    if github_access_token:
+    if access_token:
         with open(
-            f"{template}-generator/app/{{{{cookiecutter.project_slug}}}}/.env", "a+"
+            f"{repository}/app/{{{{cookiecutter.project_slug}}}}/.env", "a+"
         ) as file:
-            file.write(f'\nGITHUB_ACCESS_TOKEN="{github_access_token}"')
+            file.write(f'\nGITHUB_ACCESS_TOKEN="{access_token}"')
 
-    os.system(f"cookiecutter {template}-generator/app")
-    os.system(f"rm -rf {template}-generator")
-    
+    os.system(f"cookiecutter {repository}/app")
+    os.system(f"rm -rf {repository}")
 
 
 if __name__ == "__main__":

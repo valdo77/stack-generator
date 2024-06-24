@@ -4,17 +4,36 @@ Stack generator is a CLI tool that allows you to generate an application templat
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install stack generator.
-
 ```bash
 pip install stack-gen
 ```
 
+## Requirements
+
+- A repository containing a [cookiecutter template](https://www.cookiecutter.io/templates) with:
+  - 'requirements.txt' file containing required dependencies
+
+    ```bash
+    cookiecutter
+    GitPython
+    python-dotenv
+    ```
+
 ## Usage
 
 ```bash
-sg --template=fastapi
-sg --template=vuejs
+sg -r=fastapi-generator -u=valdo77
+```
+
+## Help
+
+```bash
+Options:
+  -r,   --repository TEXT        Name of repository containing the template to generate
+  -u    --user TEXT              Name of github's user owning the repository
+  -gac  --access_token TEXT      Github access token used to manage branch protection on generation (optional)
+                                  
+  --help                      Show this message and exit.
 ```
 
 ## Contributing
