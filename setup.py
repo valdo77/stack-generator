@@ -6,11 +6,11 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 setup(
     name="stack_gen",
-    version="0.0.14",
+    version="0.0.16",
     author="Devoteam digital lab",
     author_email="valdo.negou.tawembe@devoteamgcloud.com",
     license="MIT",
-    description="A cli tool to generate code base from cookiecutter templates",
+    description="A CLI tool to generate code base from any cookiecutter template",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="",

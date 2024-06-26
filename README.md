@@ -1,6 +1,6 @@
 # Stack Generator
 
-Stack generator is a CLI tool that allows you to generate an application template in one command.
+A CLI tool to generate a code base from any cookiecutter template in one command
 
 ## Installation
 
@@ -10,14 +10,7 @@ pip install stack-gen
 
 ## Requirements
 
-- A repository containing a [cookiecutter template](https://www.cookiecutter.io/templates) with:
-  - 'requirements.txt' file containing required dependencies
-
-    ```bash
-    cookiecutter
-    GitPython
-    python-dotenv
-    ```
+A repository containing a [cookiecutter template](https://www.cookiecutter.io/templates)
 
 ## Usage
 
@@ -33,7 +26,7 @@ Options:
   -u    --user TEXT              Name of github's user owning the repository
   -gac  --access_token TEXT      Github access token used to manage branch protection on generation (optional)
                                   
-  --help                      Show this message and exit.
+  --help                         Show this message and exit.
 ```
 
 ## Contributing
