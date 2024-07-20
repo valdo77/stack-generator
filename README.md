@@ -15,7 +15,7 @@ A repository containing a [cookiecutter template](https://www.cookiecutter.io/te
 ## Usage
 
 ```bash
-sg -r=fastapi-generator -u=valdo77
+sg -r fastapi-generator -u valdo77
 ```
 
 ## Help
@@ -25,7 +25,7 @@ Options:
   -r,   --repository TEXT        Name of repository containing the template to generate
   -u    --user TEXT              Name of github's user owning the repository
   -gac  --access_token TEXT      Github access token used to manage branch protection on generation (optional)
-                                  
+
   --help                         Show this message and exit.
 ```
 
