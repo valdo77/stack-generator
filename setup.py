@@ -6,7 +6,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 setup(
     name="stack_gen",
-    version="0.0.16",
+    version="0.0.17",
     author="Devoteam digital lab",
     author_email="valdo.negou.tawembe@devoteamgcloud.com",
     license="MIT",
