@@ -27,7 +27,6 @@ def clean_on_fail(func):
             logger.info("Your template has been generated !\n")
         except Exception as e:
             logger.exception(e)
-            os.system(f"rm -rf {kwargs['repository']}")
             exit(1)
         finally:
             os.system(f"rm -rf {kwargs['repository']}")

@@ -1,6 +1,6 @@
 # Stack Generator
 
-A CLI tool to generate a code base from any cookiecutter template in one command
+A CLI tool to generate a code base from any cookiecutter template
 
 ## Installation
 
@@ -8,33 +8,32 @@ A CLI tool to generate a code base from any cookiecutter template in one command
 pip install stack-gen
 ```
 
-## Requirements
-
-A repository containing a [cookiecutter template](https://www.cookiecutter.io/templates)
-
-## Usage
+## CLI Usage
 
 ```bash
-sg -r fastapi-generator -u valdo77
-```
+sg [OPTIONS] [ARGS]...
 
-## Help
-
-```bash
 Options:
-  -r,   --repository TEXT        Name of repository containing the template to generate
+  -r,   --repository TEXT        Name of github repository containing the template to generate
   -u    --user TEXT              Name of github's user owning the repository
-  -gac  --access_token TEXT      Github access token used to manage branch protection on generation (optional)
+  -gac  --access_token TEXT      Write GITHUB_ACCESS_TOKEN env variable into .env file (Optional)
 
   --help                         Show this message and exit.
 ```
 
-## Contributing
+## Example
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+To clone [this](https://github.com/hourlier96/fastapi-generator) cookiecutter template:
 
-Please make sure to update tests as appropriate.
+```bash
+sg -r fastapi-generator -u hourlier96
+```
+
+## Informations
+
+Specified repository MUST respect [cookiecutter template format](https://cookiecutter.readthedocs.io/en/stable/overview.html).
+
+Specified user MUST owned the repository specified.
 
 ## License
 
